@@ -26,10 +26,13 @@ function onFormInput(event) {
 function onFormSubmit(event) {
   event.preventDefault();
   const formElements = event.target.elements
-  const email = formElements.email.value
-  const textContent = formElements.message.value
+  const email = formElements.email.value.trim()
+  const textContent = formElements.message.value.trim()
   if (email === "" || textContent === "") {
-    return console.log("Будь ласка, заповніть усі поля");
+    return alert("Будь ласка, заповніть усі поля");
+  }
+  if (email === " " || textContent === " ") {
+    console.log("Не ставьте пробіли!!!")
   }
   console.log(`Email: ${email}, Message: ${textContent}`);
     event.target.reset();
